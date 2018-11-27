@@ -1,4 +1,4 @@
-export const endpoint = ''
+export const endpoint = 'https://2013.deolhonasmetas.org.br/'
 
 export const get = (url) => {
     return fetch(`${endpoint}/${url}`)
