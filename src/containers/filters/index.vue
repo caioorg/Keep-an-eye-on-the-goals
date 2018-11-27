@@ -2,10 +2,13 @@
     <div>
         <form v-on:submit.prevent="getDistrict()">
             <div>
-                <input type="text" v-model.lazy="searchDistrict">
-            </div>
-            <div>
-                <button>Buscar</button>
+                <!-- <select v-model="district">
+                    <option v-for="value in data">
+                        {{ value }}
+                    </option>
+                </select> -->
+
+                <input type="text">
             </div>
         </form>
     </div>
@@ -20,21 +23,27 @@
 
         data() {
             return {
-                searchDistrict: "",
+                district: "",
                 data: []
             }
         },
 
-        // created() {
-        //     this.getDistrict()
-        // },
+        created() {
+            this.getDistrict()
+        },
 
         methods: {
 
             getDistrict () {
+                const url = `/api/public/districts`
                 
-                
-
+                get(url)
+                    .then((response) => {
+                        this.data = response.districts
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                    })
             }
         }
     }
