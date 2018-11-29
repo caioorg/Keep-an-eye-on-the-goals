@@ -3,6 +3,7 @@
         <div class="filter-container__form">
             <form>
                 <select v-model="district" @change="selectGoals(district)">
+                    <option value="595">Anhanguera</option>
                     <option v-for="(value, index) in data" :value="value.id" :key="index">
                         {{ value.name }}
                     </option>
