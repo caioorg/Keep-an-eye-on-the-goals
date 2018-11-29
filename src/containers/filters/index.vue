@@ -1,15 +1,16 @@
 <template>
-    <div>
-        <form>
-            <select v-model="district" @change="selectGoals(district)">
-                <option v-for="value in data" :value="value.id" :key="value.id">
-                    {{ value.name }}
-                </option>
-            </select>
-        </form>
+    
+        <div class="filter-container__form">
+            <form>
+                <select v-model="district" @change="selectGoals(district)">
+                    <option v-for="(value, index) in data" :value="value.id" :key="index">
+                        {{ value.name }}
+                    </option>
+                </select>
+            </form>
 
-        <GoalsResults :goals="goals"/>
-    </div>
+            <GoalsResults :goals="goals"/>
+        </div>
 </template>
 
 <script>
@@ -25,13 +26,13 @@
 
         data() {
             return {
-                district: ``,
+                district: "",
                 data: [],
-                goals: []
+                goals: [],
             }
         },
 
-        created() {
+        mounted() {
             this.getDistrict()
         },
 
@@ -39,7 +40,7 @@
             
             //created to search all districts
             getDistrict () {
-                const url = `/api/public/districts`
+                const url = `api/public/districts`
                 get(url)
                 .then((response) => {
                     this.data = response.districts
@@ -54,7 +55,12 @@
                 const url = `/api/public/goals?region_id=${goals}`
                 get(url)
                 .then((response) => {
-                    this.goals = response.goals
+                    if(response.goals) {
+                        this.goals = response.goals
+                    }else {
+                        this.message = 'Não foi encontrado nenhuma meta para esse distrito.'
+                    }
+                    
                 })
             }
         }

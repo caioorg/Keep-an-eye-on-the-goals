@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700');
+
+html {
+    background: #f6f6f6;
+}
+.filter-container {
+
+    &__title {
+        text-align: center;
+        font-family: 'Ubuntu';
+        font-weight: 400;
+        color: #0984e3;
+        font-size: 30px;
+    }
+
+    &__content {
+        font-size: 16px;
+        font-family: 'Ubuntu';
+        font-weight: 400;
+        line-height: 24px;
+        color: #636e72;
+        margin: 25px 0;
+    }
+
+    &__form {
+
+        form {
+            text-align: center;
+            margin-bottom: 50px;
+
+
+            select {
+                border: 0;
+                border-radius: 5px;
+                width: 50%;
+                min-height: 50px;
+                font-family: 'Ubuntu';
+                font-weight: 700;
+                font-size: 16px;
+                padding: 0 20px;
+                color: #2d3436;
+                background: #dfe6e9;
+
+                @media (min-width: 320px) and (max-width: 768px){
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &__result {
+        
+        h2 {
+            text-align: center;
+            font-family: 'Ubuntu';
+            font-weight: 400;
+            color: #0984e3;
+        }
+
+        .card-goal {
+            width: 100%;
+            margin: 0 0 20px;
+            padding: 15px;
+            box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.2);
+            cursor: pointer;
+
+            &__name {
+                font-family: 'Ubuntu';
+                font-weight: 700;
+                font-size: 20px;
+                color: #42A5F5;
+                position: relative;
+                padding-right: 25px;
+
+                &:after {
+                    content: "\25bc";
+                    position: absolute;
+                    right: 20px;
+                    font-size: 11px;
+                    top: 12px;
+                }
+            }
+
+            &__description {
+                font-family: 'Ubuntu';
+                font-weight: 400;
+                color: #636e72;
+                line-height: 24px;
+                margin-bottom: 15px;
+                font-size: 15px;
+            }
+
+            &__be_delivered {
+                font-family: 'Ubuntu';
+                font-weight: 400;
+                color: #2d3436;
+                font-size: 15px;
+                font-style: italic;
+                margin-bottom: 10px;
+                margin-right: 10px;
+                display: inline-block;
+
+                &:before {
+                    content: "O que será entregue: ";
+                    display: inline;
+                    font-family: 'Ubuntu';
+                    font-weight: 700;
+                    color: #000000;
+                    font-size: 15px;
+                }
+            }
+            
+            &__expect_start_date, &__expect_end_date {
+                font-family: 'Ubuntu';
+                font-weight: 400;
+                color: #2d3436;
+                font-size: 15px;
+                font-style: italic;
+                margin-bottom: 10px;
+                display: inline-block;
+                margin-right: 10px;
+            }
+
+            &__expect_start_date {
+                
+                &:before {
+                    content: "Quando irá iniciar: ";
+                    display: inline;
+                    font-family: 'Ubuntu';
+                    font-weight: 700;
+                    color: #000000;
+                    font-size: 15px; 
+                }
+            }
+
+            &__expect_end_date {
+                
+                &:before {
+                    content: "Possível data de Conclusão: ";
+                    display: inline;
+                    font-family: 'Ubuntu';
+                    font-weight: 700;
+                    color: #000000;
+                    font-size: 15px; 
+                }
+            }
+
+
+
+            &__informations {
+                max-height: 0;
+                overflow: hidden;
+                margin-top: 15px;
+            }
+
+            &.active {
+
+                .card-goal__informations {
+                    max-height: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+}

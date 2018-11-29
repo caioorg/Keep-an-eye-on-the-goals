@@ -1,3 +1,4 @@
+import './assets/scss/index.scss'
 import Vue from 'vue'
 
 // Routers
